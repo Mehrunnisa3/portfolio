@@ -21,6 +21,25 @@
   .cs-img { position: relative; display: block; }
   @media (max-width: 1100px) { .cs-tracker { display: none !important; } }
   @media (min-width: 1101px) { .cs-main { padding-left: 260px; } }
+  section[data-cs-step="1"], section[data-cs-step="2"], section[data-cs-step="3"] { font-family: 'Mulish', sans-serif; }
+  @media (min-width: 1101px) {
+  section[data-cs-step="1"], section[data-cs-step="2"], section[data-cs-step="3"] {
+    max-width: none !important;
+    width: min(62.5rem, calc(100vw - 260px)) !important;
+    margin-left: max(260px, calc(50vw - 370px)) !important;
+    margin-right: 0 !important;
+  }
+}
+
+  /* @media (min-width: 1101px) { 
+  section[data-cs-step="1"], section[data-cs-step="2"], section[data-cs-step="3"] {
+    max-width: none !important;
+    width: min(62.5rem, calc(100vw - 260px)) !important;
+    margin-left: max(260px, calc(50vw - 370px)) !important;
+    margin-right: 0 !important;
+  } */
+/* } */
+  
   @media (max-width: 900px) {
     .cs-hero { grid-template-columns: 1fr !important; gap: 40px !important; }
     .cs-hero-img { min-height: 420px !important; }
