@@ -48,7 +48,8 @@
 
   <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 28px 56px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px);">
     <a href="index.html" style="text-decoration: none;">
-      <div style="position: relative; width: 60px; height: 60px; border-radius: 50%; background: #1c1c1c; flex: none;">
+      <!-- <div style="position: relative; width: 60px; height: 60px; border-radius: 50%; background: #1c1c1c; flex: none;"> -->
+        <div style="position: relative; width: 60px; height: 60px; border-radius: 50%; background: #1c1c1c; flex: none; border: 2px solid transparent; transition: transform 0.3s ease, border-color 0.3s ease;" style-hover="border-color: #e8b4b8 !important; transform: scale(1.1);">
         <span style="position: absolute; left: 15px; top: 12px; color: #fff; font-size: 13px; font-weight: 500;">m</span>
         <span style="position: absolute; left: 27px; top: 23px; color: #fff; font-size: 13px; font-weight: 500;">n</span>
         <span style="position: absolute; left: 18px; top: 33px; color: #fff; font-size: 13px; font-weight: 500;">r</span>
@@ -63,6 +64,7 @@
 
   <!-- Sticky side dot-tracker -->
   <div class="cs-tracker" style="position: fixed; left: 48px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 22px;">
+    <!-- <div class="cs-tracker" style="position: fixed; left: 48px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 22px; transition: opacity 0.4s ease; {{ trackerStyle }}">  -->
     <sc-for list="{{ trackerSteps }}" as="step" hint-placeholder-count="5">
       <div onClick="{{ step.onClick }}" style="display: flex; align-items: center; gap: 14px; cursor: pointer;">
         <span style="width: 13px; height: 13px; border-radius: 50%; background: {{ step.dotColor }}; transition: background 0.4s ease; flex: none;"></span>
@@ -338,7 +340,7 @@
     </div>
     <div style="display: flex; flex-direction: column; gap: 0px; margin-bottom: 32px; padding: 0 90px;" class="es-zigzag-scroll">
       <div style="display: flex; justify-content: flex-start; align-items: stretch; flex-direction: row; flex-wrap: nowrap; position: relative"><img src="./uploads/Frame 2.01.png" style="width: 220px; height: auto; display: block;"><div style="font-size: 20px; line-height: 1; font-family: Merriweather; position: absolute; left: 408px; top: 119px; text-align: center"><b style="background-color: #F4D9DC; padding-top: 2px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px">Project Selection&nbsp;</b></div></div>
-      <div style="display: flex; justify-content: flex-end; margin-top: -60px; position: relative"><img src="./uploads/Frame AR3.png" style="width: 220px; height: auto; display: block;"><div style="font-size: 16px; line-height: 1; font-family: Mulish, sans-serif; position: absolute; left: 136px; top: 246px"><b style="font-size: 20px; font-family: Merriweather; background-color: #F4D9DC; padding-left: 3px; padding-right: 3px">Ar View</b></div></div>
+      <div style="display: flex; justify-content: flex-end; margin-top: -60px; position: relative"><img src="./uploads/Frame AR3.png" style="width: 220px; height: auto; display: block;"><div style="font-size: 16px; line-height: 1; font-family: Mulish, sans-serif; position: absolute; left: 136px; top: 246px"><b style="font-size: 20px; font-family: Merriweather; background-color: #F4D9DC; padding-left: 3px; padding-right: 3px">AR View</b></div></div>
       <div style="display: flex; justify-content: flex-start; margin-top: -60px; position: relative"><img src="./uploads/Frame 2.4.png" style="width: 220px; height: auto; display: block;"><div style="font-size: 20px; line-height: 1; position: absolute; left: 388px; top: 217px; font-family: Merriweather"><b style="background-color: #F4D9DC; padding-left: 3px; padding-right: 3px">Form Feedback</b></div></div>
       <div style="display: flex; justify-content: flex-end; margin-top: -60px; position: relative"><img src="./uploads/Frame 2.6.png" style="width: 220px; height: auto; display: block;"><div style="font-size: 20px; line-height: 1; position: absolute; left: 136px; top: 215px; font-family: Merriweather"><b style="background-color: #F4D9DC; padding-left: 3px; padding-right: 3px">Data View</b></div></div>
       <div style="display: flex; justify-content: flex-start; margin-top: -60px; position: relative"><img src="./uploads/Frame 2.10.png" style="width: 220px; height: auto; display: block;"><div style="font-size: 16px; line-height: 1; position: absolute; left: 506px; top: 219px; font-family: Merriweather"><b style="font-size: 20px; background-color: #F4D9DC; padding-top: 2px; padding-bottom: 2px">Data Comparison</b></div></div>
@@ -626,6 +628,7 @@
   </section>
 
   </main><footer style="padding: 90px 56px 70px 56px; background: #1c1c1c; color: #fff;">
+    <!-- </main><footer ref="{{ footerRef }}" style="padding: 90px 56px 70px 56px; background: #1c1c1c; color: #fff;"> -->
     <div style="max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end;">
       <div>
         <div style="font-size: 13px; letter-spacing: 0.18em; color: #8a8a8a; font-weight: 700; margin-bottom: 18px;">GET IN TOUCH</div>
@@ -709,11 +712,13 @@ class Component extends DCLogic {
     this._mockupIo.observe(el);
   }
 
-  componentWillUnmount() {
+ componentWillUnmount() {
     if (this._io) this._io.disconnect();
     if (this._phaseIo) this._phaseIo.disconnect();
     if (this._mockupIo) this._mockupIo.disconnect();
   }
+
+
 
   scrollTo(i) {
     const el = (this._sections || [])[i];
@@ -749,6 +754,7 @@ class Component extends DCLogic {
     const heroVideoRef = (el) => this._playVideo(el);
     const redesignVideoRef = (el) => this._playVideo(el);
     return { blush, trackerSteps, marqueeTrackRef, phaseGridRef, phaseAnim0, phaseAnim1, phaseAnim2, phaseAnim3, mockupGridRef, mockupAnim0, mockupAnim1, mockupAnim2, mockupAnim3, mockupAnim4, mockupAnim5, mockupAnim6, mockupAnim7, heroVideoRef, redesignVideoRef };
+
   }
 }
 </script>

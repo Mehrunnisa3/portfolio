@@ -83,7 +83,8 @@
 
   <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 28px 56px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px);">
     <a href="index.html" style="text-decoration: none;">
-      <div style="position: relative; width: 60px; height: 60px; border-radius: 50%; background: #1c1c1c; flex: none;">
+      <!-- <div style="position: relative; width: 60px; height: 60px; border-radius: 50%; background: #1c1c1c; flex: none;"> -->
+        <div style="position: relative; width: 60px; height: 60px; border-radius: 50%; background: #1c1c1c; flex: none; border: 2px solid transparent; transition: transform 0.3s ease, border-color 0.3s ease;" style-hover="border-color: #e8b4b8 !important; transform: scale(1.1);">
         <span style="position: absolute; left: 15px; top: 12px; color: #fff; font-size: 13px; font-weight: 500;">m</span>
         <span style="position: absolute; left: 27px; top: 23px; color: #fff; font-size: 13px; font-weight: 500;">n</span>
         <span style="position: absolute; left: 18px; top: 33px; color: #fff; font-size: 13px; font-weight: 500;">r</span>
@@ -97,7 +98,8 @@
   </nav>
 
   <div class="cs-tracker" style="position: fixed; left: 48px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 22px;">
-    <sc-for list="{{ trackerSteps }}" as="step" hint-placeholder-count="5">
+      <!-- <div class="cs-tracker" style="position: fixed; left: 48px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 22px; transition: opacity 0.4s ease; {{ trackerStyle }}">  -->
+      <sc-for list="{{ trackerSteps }}" as="step" hint-placeholder-count="5">
       <div onClick="{{ step.onClick }}" style="display: flex; align-items: center; gap: 14px; cursor: pointer;">
         <span style="width: 13px; height: 13px; border-radius: 50%; background: {{ step.dotColor }}; transition: background 0.4s ease; flex: none;"></span>
         <span style="font-size: 22px; font-weight: 400; color: {{ step.textColor }}; transition: color 0.4s ease;">{{ step.label }}</span>
@@ -537,6 +539,7 @@
   </main></div>
 
   <footer style="padding: 90px 56px 70px 56px; background: #1c1c1c; color: #fff;">
+      <!-- <footer ref="{{ footerRef }}" style="padding: 90px 56px 70px 56px; background: #1c1c1c; color: #fff;"> -->
     <div style="max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end;">
       <div>
         <div style="font-size: 13px; letter-spacing: 0.18em; color: #8a8a8a; font-weight: 700; margin-bottom: 18px;">GET IN TOUCH</div>
@@ -559,8 +562,7 @@ text-decoration: none;" style-hover="color: #e8b4b8 !important;">ra.mehru@gmail.
   &quot;blushColor&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#f4d9dc&quot; },
   &quot;mintColor&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#82c9a4&quot; }
 }">
-class Component extends DCLogic {
-  state = { activeStep: 0, hifiVisible: false, researchVisible: false, statVisible0: false, statVisible1: false, statVisible2: false, findingsVisible: false };
+class Component extends DCLogic{ state = { activeStep: 0, hifiVisible: false, researchVisible: false, statVisible0: false, statVisible1: false, statVisible2: false, findingsVisible: false };
 
   componentDidMount() {
     this._sections = Array.from(document.querySelectorAll('[data-cs-step]'));
